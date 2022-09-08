@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    database:
+        image: postgres:10
+        container_name: fidelize-application-database
+        environment:
+            - POSTGRES_PASSWORD=1z3t3c4
+            - POSTGRES_DB=fidelize_application
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./database:/var/lib/postgres
+        networks:
+            - fidelize-platform-network
+
+networks:
+    fidelize-platform-network:
+        driver: bridge
